@@ -34,8 +34,8 @@ public:
     int calcHash2(string v);
     void getClosestPrime();
     void reHash();
-    int collHash1(int h, int i, string k);
-    int collHash2(int h, int i, string k);
+    int collHash1(int i);
+    int collHash2(int i, int m);
     int findKey(string k);
     void printMap();
     

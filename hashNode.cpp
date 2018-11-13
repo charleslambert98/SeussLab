@@ -48,7 +48,7 @@ void hashNode::dblArray(){
 
 string hashNode::getRandValue(){
     if (currSize > 0){
-        return values[rand()%currSize];
+        return values[rand() % currSize];
     }
     else{
         return "";
