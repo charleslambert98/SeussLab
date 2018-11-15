@@ -10,6 +10,7 @@
 #include <stdio.h>
 
 hashNode::hashNode(){
+    srand(time_t(NULL));
     keyword = "";
     valuesSize = 0;
     currSize = 0;
@@ -17,6 +18,7 @@ hashNode::hashNode(){
 }
 
 hashNode::hashNode(string s){
+    srand(time_t(NULL));
     keyword = s;
     valuesSize = 100;
     currSize = 0;

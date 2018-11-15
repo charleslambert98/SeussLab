@@ -52,7 +52,7 @@ void hashMap::addKeyValue(string k, string v){
     else{
         map[i]->addValue(v);
     }
-    cout << "Value: " << v << endl;
+    cout << "Key: " << k << endl;
     cout << "Index: " << i << endl;
     numKeys++;
 
