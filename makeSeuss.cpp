@@ -60,5 +60,6 @@ void makeSeuss::writeFile(){
         value = ht->map[ht->getIndex(key)]->getRandValue();
         ct++;
     }
+    //ht->printMap();
     outfile.close();
 }

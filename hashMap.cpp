@@ -31,17 +31,19 @@ void hashMap::addKeyValue(string k, string v){
     int i = getIndex(k);
     int finder = findKey(k);
     
-    if(finder != -1){
+    if(finder == i){
         return;
     }
     
-    while (map[i] != NULL && map[i] != node){
-        collisionct1++;
-        if (c1 == true){
-            i = collHash1(i);
-        }
-        else{
-            i = collHash2(i,1);
+    while (map[i] != NULL){
+        if (map[i] != node){
+            collisionct1++;
+            if (c1 == true){
+                i = collHash1(i);
+            }
+            else{
+                i = collHash2(i,1);
+            }
         }
     }
 
@@ -52,8 +54,7 @@ void hashMap::addKeyValue(string k, string v){
     else{
         map[i]->addValue(v);
     }
-    cout << "Key: " << k << endl;
-    cout << "Index: " << i << endl;
+
     numKeys++;
 
     if (numKeys/mapSize >= 0.7){
@@ -180,7 +181,7 @@ int hashMap::findKey(string k){
 }
 
 void hashMap::printMap(){
-    for (int i = 0; i < mapSize; i++){
-        cout << "Keyword located at index " << i <<  ": " << map[i] << endl;
+    for (int i = 0; i < mapSize-1; i++){
+        cout << "Keyword located at index " << i <<  ": " << map[i]->keyword << endl;
     }
 }
