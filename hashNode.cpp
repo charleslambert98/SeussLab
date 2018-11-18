@@ -41,7 +41,7 @@ void hashNode::addValue(string v){
 }
 
 void hashNode::dblArray(){
-    string newValues[valuesSize*2];
+    string* newValues = new string[valuesSize*2];
     for (int i = 0; i < currSize; i++){
         newValues[i] = values[i];
     }

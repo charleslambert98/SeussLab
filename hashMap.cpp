@@ -9,6 +9,7 @@
 #include "hashMap.hpp"
 #include <stdio.h>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -48,7 +49,6 @@ void hashMap::addKeyValue(string k, string v){
         map[i] = new hashNode(k,v);
     }
     
-
     numKeys++;
 
     if (numKeys/mapSize >= 0.7){
@@ -117,35 +117,33 @@ void hashMap::reHash(){
 }
 
 int hashMap::collHash1(int i){ //Linear Probing
-    int j = i;
-    
-    do {
-        i++;
-        if (i > mapSize){
-            i = 0;
+    if (i < mapSize){
+        if (map[i] == NULL){
+            return i;
         }
         else{
-            if (i == j){
-                reHash();
-                break;
-            }
+            return collHash1(i+1);
         }
-        collisionct2++;
-    } while(map[i] != NULL);
-    
-    return i;
+    }
+    else{
+        i = 0;
+        return collHash1(i);
+    }
 }
 
 int hashMap::collHash2(int i, int m){ //Quadratic Probing
-    if (map[i] == NULL){
-        return i;
+    
+    while (m < (int)sqrt(mapSize)){
+        i += i * (int)pow(m,2);
+        i %= mapSize;
+        if (map[i] == NULL){
+            break;
+        }
+        else{
+            m++;
+        }
     }
-    else{
-        i += (m*m);
-    }
-    i %= mapSize;
-    collisionct2++;
-    return collHash2(i, m+1);
+    return i;
 }
 
 int hashMap::findKey(string k){
@@ -176,6 +174,13 @@ int hashMap::findKey(string k){
 
 void hashMap::printMap(){
     for (int i = 0; i < mapSize-1; i++){
-        cout << "Keyword located at index " << i <<  ": " << map[i]->keyword << endl;
+        if (map[i] != NULL){
+            cout << "Keyword located at index " << i <<  ": " << map[i]->keyword << endl;
+        }
     }
+    cout << "-----------------------" << endl;
+    cout << "Number of Keys: " << numKeys << endl;
+    cout << "Size of Map: " << mapSize << endl;
+    cout << "Number of Collisions: " << collisionct1 << endl;
+    cout << "Number of Post Collisions: " << collisionct2 << endl;
 }
