@@ -27,33 +27,27 @@ hashMap::hashMap(bool hash1, bool coll1){
 }
 
 void hashMap::addKeyValue(string k, string v){
-    hashNode *node = new hashNode(k,v);
     int i = getIndex(k);
     int finder = findKey(k);
     
     if(finder == i){
-        return;
-    }
-    
-    while (map[i] != NULL){
-        if (map[i] != node){
-            collisionct1++;
-            if (c1 == true){
-                i = collHash1(i);
-            }
-            else{
-                i = collHash2(i,1);
-            }
-        }
-    }
-
-    if (map[i] == NULL){
-        map[i] = node;
-    }
-
-    else{
         map[i]->addValue(v);
     }
+    
+    else if (map[i] == NULL){
+        map[i] = new hashNode(k,v);
+    }
+    else{
+        collisionct1++;
+        if (c1 == true){
+            i = collHash1(i);
+        }
+        else{
+            i = collHash2(i,1);
+        }
+        map[i] = new hashNode(k,v);
+    }
+    
 
     numKeys++;
 
