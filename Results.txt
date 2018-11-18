@@ -1,0 +1,32 @@
+Statistics for Each Method
+
+	Functions Used:  calcHash1 and collHash1 (Corresponding File "calcHash1_collHash1")
+		Number of Collisions: 4625
+		Number of Post Collisions: 77994
+
+	Functions Used:  calcHash2 and collHash1 (Corresponding File "calcHash2_collHash1")
+		Number of Collisions: 4625
+		Number of Post Collisions: 77994
+
+	Functions Used: calcHash1 and collHash2 (Corresponding File "calcHash1_collHash2")
+		Number of Collisions: 4959
+		Number of Post Collisions: 24247500
+		
+
+	Functions Used calcHash2 and collHash2 (Corresponding File "calcHash2_collHash2")
+		Number of Collisions: 4959
+		Number of Post Collisions: 24247500
+	
+General Statistics
+	Number of Keys: 8525
+	Size of Map: 32766
+	
+	Favorite Phrases:
+		1.  Grow to get better.
+		2.  But it a ball.  	
+		3.  You'll come nothing true THEN heart. 
+		4.  On more tilt.
+		5.  watching you do not eat the road sitting and drove to grow.
+		6.  to rise of poor THEN harm.
+
+
