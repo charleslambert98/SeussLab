@@ -122,11 +122,13 @@ int hashMap::collHash1(int i){ //Linear Probing
             return i;
         }
         else{
+            collisionct2++;
             return collHash1(i+1);
         }
     }
     else{
         i = 0;
+        collisionct2++;
         return collHash1(i);
     }
 }
@@ -140,6 +142,7 @@ int hashMap::collHash2(int i, int m){ //Quadratic Probing
             break;
         }
         else{
+            collisionct2++;
             m++;
         }
     }
